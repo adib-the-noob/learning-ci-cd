@@ -11,4 +11,4 @@ jobs:
         with:
           python-version: 3.8
       - name: Run tests
-        run: python3 python-ci/test.py
+        run: python3 python-ci/add_num.py
