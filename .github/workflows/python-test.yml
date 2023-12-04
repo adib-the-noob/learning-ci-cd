@@ -3,14 +3,7 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
-      - name: Set Git Config
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git remote set-url origin "https://${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
       - name: Get code
         uses: actions/checkout@v3
       - name: Set up Python
