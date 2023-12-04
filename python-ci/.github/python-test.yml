@@ -3,7 +3,15 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
+      - name: Use the token in your command
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git remote set-url origin "https://${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          git push origin main
       - name: Get code
         uses: actions/checkout@v3
       - name: Set up Python
