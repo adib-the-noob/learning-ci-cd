@@ -20,6 +20,7 @@ jobs:
         run: echo "Running tests...."
     
   deploy:
+    needs: test # deploy after test job is done
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
